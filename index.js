@@ -40,29 +40,12 @@ app.get('/', (req, res) => {
     res.send("Hola");
 });
 
-
-
-app.get('/json', function (req, res) {
-    conexion.connect();  
-   
-    conexion.query('SELECT * FROM paises', function(err, rows, fields)   
-    {  
-        conexion.end();
-        if (err) throw err;  
-        res.json(rows); 
-    });
-  });
-
-
 app.get('/paises/:id', (req, res) => {
     const {id} = req.params.id;
     res.json({
         id: 2, nombre: 'France', region: 'EU'
     })
 });
-
-
-
 
 app.get('/paises', (req, res) => {
     const paises = [];
@@ -77,10 +60,6 @@ app.get('/paises', (req, res) => {
     }
     res.json(paises);
 });
-
-
-
-
 
 app.get('/paises/:id/region/:regionId', (req, res) => {
     const {id, regionId} = req.params;
@@ -106,5 +85,4 @@ app.listen(port, () => {
     console.log("Conectado al puerto:", port);
 });
 
-
-//console.log("Pruebaaaaa");*/
+*/
